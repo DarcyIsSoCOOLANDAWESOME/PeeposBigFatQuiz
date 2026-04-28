@@ -1,11 +1,11 @@
-# Peepos AWESOME Strongman quiz :grey_question:
+# Peepos AWESOME Strongman quiz:exclamation:
 
 This is Peepo, he's hosting a strongman quiz!
 (Project for Nology Game project)
 
 ![alt text](Sprites/PeePoUpdated-Sized.png)
 
-## Objective
+## Objective:monocle_face:
 
 I want to create a simple quiz with up to 5 different questions. It will be multiple choice with 4 different answers
 to choose from. Only one answer is correct.
@@ -14,7 +14,7 @@ The users score will go up/update if they successfully answer a question. If uns
 
 The total score is out of 5.
 
-### Question Examples :thought_balloon:
+### Question Examples:thought_balloon:
 
 > Q: Who won 2026's Worlds Strongest Man?
 
@@ -42,6 +42,8 @@ Choices:
   - [ ] Incorrect answer turns red
 - [ ] Play Again Button
 - [ ] We should add classes and ID's to things we need to reference/use
+  - [ ] Answer buttons should have the same class for eg
+  - [ ] Play again and start button should have IDs and Classes?
 - [ ] Add some basic animations (I think this can be done through HTML??)
 
 ## SCSS
@@ -51,7 +53,7 @@ Choices:
 - [ ] Media Querys
   - [ ] Mobile accessibility layout first
   - [ ] Laptop accessibility layout second
-- [ ] Colour scheme sheet
+- [ ] Colour scheme sheet - [ ] Background Color - [ ] Text Colors
 - [ ] Border Radius, we want no sharp corners
 - [ ] Question Text styled like a speech bubble
 - [ ] Custom Text, do not use the default
@@ -65,7 +67,7 @@ Choices:
 - [ ] If the question has been answered (the selected answer has changed colour/correct or incorrect has been called), then move onto the next question.
 - [ ] If there are no questions left, show final score and play again button.
 
-### EXTRA Content
+### EXTRA Content:scroll:
 
 - [ ] Peepo's img/sprite changes
   - [ ] Sad peepo when wrong
