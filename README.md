@@ -1,7 +1,7 @@
 ## Peepos AWESOME Strongman quiz
 
 This is Peepo, he's hosting a strongman quiz!
-
+![alt text](Sprites/PeePoUpdated.png)
 (Project for Nology Game project)
 
 ## Objective
@@ -17,11 +17,12 @@ The total score is out of 5.
 
 Q: Who won 2026's Worlds Strongest Man?
 Choices:
--Rayno Nel
--Tom Stoltman
--Eddie Hall
--Mitchell Hooper
-A: Mitchell Hooper
+
+- Rayno Nel
+- Tom Stoltman
+- Eddie Hall
+- Mitchell Hooper
+  A: Mitchell Hooper
 
 ## HTML
 
