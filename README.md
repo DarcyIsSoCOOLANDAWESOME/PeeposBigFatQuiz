@@ -1,8 +1,9 @@
-## Peepos AWESOME Strongman quiz
+# Peepos AWESOME Strongman quiz :grey_question:
 
 This is Peepo, he's hosting a strongman quiz!
-![alt text](Sprites/PeePoUpdated.png)
 (Project for Nology Game project)
+
+![alt text](Sprites/PeePoUpdated-Sized.png)
 
 ## Objective
 
@@ -13,16 +14,18 @@ The users score will go up/update if they successfully answer a question. If uns
 
 The total score is out of 5.
 
-# Question Examples
+### Question Examples :thought_balloon:
 
-Q: Who won 2026's Worlds Strongest Man?
+> Q: Who won 2026's Worlds Strongest Man?
+
 Choices:
 
 - Rayno Nel
 - Tom Stoltman
 - Eddie Hall
 - Mitchell Hooper
-  A: Mitchell Hooper
+
+> A: Mitchell Hooper
 
 ## HTML
 
@@ -62,7 +65,7 @@ Choices:
 - [ ] If the question has been answered (the selected answer has changed colour/correct or incorrect has been called), then move onto the next question.
 - [ ] If there are no questions left, show final score and play again button.
 
-# EXTRA Content
+### EXTRA Content
 
 - [ ] Peepo's img/sprite changes
   - [ ] Sad peepo when wrong
