@@ -1,0 +1,14 @@
+$mobile: 640px;
+$laptop: 1280px;
+
+@mixin phone {
+  @media only screen and (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media only screen and (min-width: ($mobile + 1px)) {
+    @content;
+  }
+}

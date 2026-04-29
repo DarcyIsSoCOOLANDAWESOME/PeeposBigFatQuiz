@@ -32,16 +32,16 @@ Choices:
 - [ ] Bullet Point NOT DONE
 - [x] Bullet Point DONE
 
-- [ ] Main Title
-- [ ] Start Button
-- [ ] Image of Peepo
-- [ ] Question Text
-- [ ] We need a grid where the quiz will be
-  - [ ] Multiple choice answer buttons in the grid
+- [x] Main Title
+- [x] Start Button
+- [x] Image of Peepo
+- [x] Question Text
+- [x] We need a grid where the quiz will be
+  - [x] Multiple choice answer buttons in the grid
   - [ ] Correct answer turns green
   - [ ] Incorrect answer turns red
 - [ ] Play Again Button
-- [ ] We should add classes and ID's to things we need to reference/use
+- [x] We should add classes and ID's to things we need to reference/use
   - [ ] Answer buttons should have the same class for eg
   - [ ] Play again and start button should have IDs and Classes?
 - [ ] Add some basic animations (I think this can be done through HTML??)
@@ -50,7 +50,7 @@ Choices:
 
 - [ ] Grid should be organised neatly with equal spacing where the answers are
 - [ ] Div with a background colour and smooth borders, this is where the quiz content will sit.
-- [ ] Media Querys
+- [x] Media Querys
   - [ ] Mobile accessibility layout first
   - [ ] Laptop accessibility layout second
 - [ ] Colour scheme sheet - [ ] Background Color - [ ] Text Colors

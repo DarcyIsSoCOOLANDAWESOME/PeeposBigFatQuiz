@@ -1,3 +1,26 @@
+@use "mediaQuery.scss";
+
+* {
+  background-color: darkcyan;
+  color: white;
+  margin: 0 auto;
+  @include mediaQuery.phone {
+    font-size: x-large;
+  }
+}
+
+button {
+  background-color: yellow;
+  border: 2px solid yellowgreen;
+  color: blueviolet;
+  border-radius: 15%;
+  text-align: center;
+  font-weight: 700;
+  margin: 4px 2px;
+  font-size: medium;
+  padding: 0.8rem;
+}
+
 h1 {
   display: flex;
   align-items: center;
@@ -10,4 +33,61 @@ h1 {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+}
+.startGame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .btn {
+    size: 10px;
+  }
+}
+.qImgBox {
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0px, 100px;
+}
+img {
+  max-width: 20rem;
+  max-height: 100%;
+  object-fit: fill;
+
+  @include mediaQuery.laptop {
+    width: 40rem;
+    max-height: 100%;
+  }
+}
+
+.quizGrid {
+  display: grid;
+  justify-content: space-between;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(2, 3fr);
+
+  .btn--answer {
+    //Top Right Bottom Left
+    padding: 20px 100px 20px;
+  }
+}
+
+.questionText {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-right: 0;
+  font-size: larger;
+  border: 1px solid red;
+
+  padding-left: 0px;
+  p {
+    color: black;
+  }
+}
+
+.peepoImg {
+  transform: scaleX(-1);
 }
