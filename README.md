@@ -61,7 +61,7 @@ Choices:
 ## JS Logic
 
 - [x] When the start button is clicked, the game starts- maybe we can call a gameStart() function we will create?
-- [ ] Need to create a function which we can call for the questions.
+- [x] Need to create a function which we can call for the questions.
 - [ ] True and false for correct and incorrect answers- we will need a boolean. (If the answer is true point++, if false keep points the same.)
 - [ ] We want the point text to update as well, not just in the background
 - [ ] If the question has been answered (the selected answer has changed colour/correct or incorrect has been called), then move onto the next question.

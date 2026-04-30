@@ -58,18 +58,18 @@ const quizQuestions = [
   },
 ];
 
-function displayQuizQuestionOne() {
-  const q = quizQuestions[0];
-  const ans = q.answer;
-  console.log(`${q.question} ${q.options} ${q.answer}`);
-  question.innerText = q.question;
-  answerA.innerText = q.options[0];
-  answerB.innerText = q.options[1];
-  answerC.innerText = q.options[2];
-  answerD.innerText = q.options[3];
-}
+// function displayQuizQuestionOne() {
+//   const q = quizQuestions[0];
+//   const ans = q.answer;
+//   console.log(`${q.question} ${q.options} ${q.answer}`);
+//   question.innerText = q.question;
+//   answerA.innerText = q.options[0];
+//   answerB.innerText = q.options[1];
+//   answerC.innerText = q.options[2];
+//   answerD.innerText = q.options[3];
+// }
 
-let currentQuestion = 1;
+let currentQuestion = 0;
 const finalQuestion = 3;
 function displayNextQuizQuestion() {
   let q = quizQuestions[currentQuestion];
@@ -86,13 +86,10 @@ function displayNextQuizQuestion() {
   if (currentQuestion === quizQuestions.length - 1) {
     console.log("final");
   }
-  startBtn.addEventListener("click", () => {
-    displayQuizQuestionOne();
-  });
 }
 
 startBtn.addEventListener("click", () => {
-  displayQuizQuestionOne();
+  displayNextQuizQuestion();
 });
 
 nextBtn.addEventListener("click", () => {
@@ -101,13 +98,11 @@ nextBtn.addEventListener("click", () => {
 });
 
 answers.addEventListener("click", (e) => {
-  function isCorrectAnswer() {
-    let answerCheck = quizQuestions[currentQuestion].answer;
-    if (answerCheck.target.innerHTML === correctAnswer) {
-      console.log("Correct!");
-    } else {
-      console.log("Wrong!");
-    }
+  const correctAnswer = quizQuestions[currentQuestion].answer;
+
+  if (e.target.innerHTML === correctAnswer) {
+    console.log("Correct!");
+  } else {
+    console.log("Wrong!");
   }
-  isCorrectAnswer();
 });
