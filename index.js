@@ -25,79 +25,51 @@ const answerD = document.querySelector("#answerD");
 
 const pointsText = document.querySelector("#points");
 
-const correctAnswer = (isCorrect) => {
-  let score = pointsText.innerText;
+const quizQuestions = [
+  {
+    question: "Who won Worlds Strongest Man 2025?",
+    options: ["Rayno Nel", "Mitchell Hooper", "Tom Stoltman", "Eddie Hall"],
+    answer: "Rayno Nel",
+  },
+  {
+    question: "As of 2026, who holds the world record for the shield carry?",
+    options: [
+      "Pavlo Kordiyaka",
+      "Gavin Bilton",
+      "Paddy Haynes",
+      "Mateusz Kieliszkowski",
+    ],
+    answer: "Paddy Haynes",
+  },
+  {
+    question: "Who broke the deadlift world record in 2016?",
+    options: [
+      "Mitchell Hooper",
+      "Eddie Hall",
+      "Mark Felix",
+      "Mateusz Kieliszkowski",
+    ],
+    answer: "Eddie Hall",
+  },
+  {
+    question: "As of April 2026, what is the Deadlift World record?",
+    options: ["500kg", "505kg", "510kg", "512kg"],
+    answer: "510kg",
+  },
+];
 
-  if ((question.innerText = "CORRECT!")) {
-    isCorrect = true;
-    console.log("IS TRUE");
-  }
-  if ((isCorrect = true)) {
-    score++;
-  } else {
-    score = score;
-  }
-};
+function displayQuiz() {
+  //Need a function to display the quiz
+  quizQuestions.forEach((q) => {
+    //need to use foreach for each array element
+    console.log(`${quizQuestions.question} ${quizQuestions.options}`);
+  });
+}
 
 startBtn.addEventListener("click", () => {
-  question.innerText = "Who won Worlds Strongest Man 2025?";
-  answerA.innerText = "Rayno Nel";
-  answerB.innerText = "Mitchell Hooper";
-  answerC.innerText = "Tom Stoltman";
-  answerD.innerText = "Eddie Hall";
-
-  answerA.addEventListener("click", () => {
-    question.innerText = "CORRECT!";
-    console.log("added a point");
-    correctAnswer();
-  });
+  displayQuiz();
 });
 
-nextBtn.addEventListener("click", () => {
-  question.innerText =
-    "As of 2026, who holds the world record for the shield carry?";
-  answerA.innerText = "Pavlo Kordiyaka";
-  answerB.innerText = "Gavin Bilton";
-  answerC.innerText = "Paddy Haynes";
-  answerD.innerText = "Mateusz Kieliszkowski";
-
-  answerC.addEventListener("click", () => {
-    question.innerText = "CORRECT!";
-    console.log("added a point");
-  });
-});
-
-// for (let i = 0; i < 5; i++) {
-//   if (question.innerText === "CORRECT!") {
-//     console.log("Added a point");
-//   }
-// }
-
-//When the start button is pressed, generate question ONE text and answers
-
-//Question One (questionText)= Who won Worlds Strongest Man 2025?
-//btn--answer[1] text "Rayno Nel" (CORRECT)
-//btn--answer[2] text "Mitchell Hooper"
-//btn--answer[3] text "Tom Stoltman"
-//btn--answer[4] text "Eddie Hall"
-
-//Question Two (questionText) = As of 2026, who holds the world record for the shield carry?
-//btn--answer[1] text "Pavlo Kordiyaka"
-//btn--answer[2] text "Gavin Bilton"
-//btn--answer[3] text "Paddy Haynes" (CORRECT)
-//btn--answer[4] text "Mateusz Kieliszkowski"
-
-//Question Three (questionText) = Who broke the deadlift world record in 2016?
-//btn--answer[1] text "Mitchell Hooper"
-//btn--answer[2] text "Eddie Hall" (CORRECT)
-//btn--answer[3] text "Mark Felix"
-//btn--answer[4] text "Hafþór Júlíus Björnsson"
-
-//Question Four (questionText) = "As of April 2026, what is the Deadlift World record?"
-//btn--answer[1] text "500kg"
-//btn--answer[2] text "505kg"
-//btn--answer[3] text "510kg" (CORRECT)
-//btn--answer[4] text "512kg"
-
-//addEventListener Click "Correct" Answer > Correct btn = green
-//addEventListener Click "WRONG" Answer > button click = red. Correct btn = green
+//We want question 1 to appear
+//Need to keep track of questions
+//when option is clicked > check if option === answer
