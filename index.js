@@ -67,17 +67,12 @@ function displayQuizQuestionOne() {
   answerB.innerText = q.options[1];
   answerC.innerText = q.options[2];
   answerD.innerText = q.options[3];
-
-  // ans.addEventListener("click", () => {
-  //   console.log("Correct");
-  //   question.innerText = "Correct";
-  // });
 }
 
 let currentQuestion = 1;
-
+const finalQuestion = 3;
 function displayNextQuizQuestion() {
-  const q = quizQuestions[currentQuestion];
+  let q = quizQuestions[currentQuestion];
   const ans = q.answer;
   currentQuestion++;
   console.log(
@@ -88,6 +83,13 @@ function displayNextQuizQuestion() {
   answerB.innerText = q.options[1];
   answerC.innerText = q.options[2];
   answerD.innerText = q.options[3];
+
+  if (currentQuestion === quizQuestions.length - 1) {
+    console.log("final");
+  }
+  startBtn.addEventListener("click", () => {
+    displayQuizQuestionOne();
+  });
 }
 
 startBtn.addEventListener("click", () => {
