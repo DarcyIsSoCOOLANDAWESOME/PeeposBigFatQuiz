@@ -47,7 +47,7 @@ const quizQuestions = [
       "Mitchell Hooper",
       "Eddie Hall",
       "Mark Felix",
-      "Mateusz Kieliszkowski",
+      "Hafþór Júlíus Björnsson",
     ],
     answer: "Eddie Hall",
   },
@@ -58,7 +58,7 @@ const quizQuestions = [
   },
 ];
 
-function displayQuiz() {
+function displayQuizQuestionOne() {
   const q = quizQuestions[0];
   const ans = q.answer;
   console.log(`${q.question} ${q.options} ${q.answer}`);
@@ -68,14 +68,35 @@ function displayQuiz() {
   answerC.innerText = q.options[2];
   answerD.innerText = q.options[3];
 
-  ans.addEventListener("click", () => {
-    console.log("Correct");
-    question.innerText = "Correct";
-  });
+  // ans.addEventListener("click", () => {
+  //   console.log("Correct");
+  //   question.innerText = "Correct";
+  // });
+}
+
+let currentQuestion = 1;
+
+function displayNextQuizQuestion() {
+  const q = quizQuestions[currentQuestion];
+  const ans = q.answer;
+  currentQuestion++;
+  console.log(
+    `question: ${q.question} choices: ${q.options} answer: ${q.answer}`,
+  );
+  question.innerText = q.question;
+  answerA.innerText = q.options[0];
+  answerB.innerText = q.options[1];
+  answerC.innerText = q.options[2];
+  answerD.innerText = q.options[3];
 }
 
 startBtn.addEventListener("click", () => {
-  displayQuiz();
+  displayQuizQuestionOne();
+});
+
+nextBtn.addEventListener("click", () => {
+  displayNextQuizQuestion();
+  console.log("display next question");
 });
 
 //We want question 1 to appear
