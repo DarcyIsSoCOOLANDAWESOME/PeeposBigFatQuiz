@@ -59,10 +59,18 @@ const quizQuestions = [
 ];
 
 function displayQuiz() {
-  //Need a function to display the quiz
-  quizQuestions.forEach((q) => {
-    //need to use foreach for each array element
-    console.log(`${quizQuestions.question} ${quizQuestions.options}`);
+  const q = quizQuestions[0];
+  const ans = q.answer;
+  console.log(`${q.question} ${q.options} ${q.answer}`);
+  question.innerText = q.question;
+  answerA.innerText = q.options[0];
+  answerB.innerText = q.options[1];
+  answerC.innerText = q.options[2];
+  answerD.innerText = q.options[3];
+
+  ans.addEventListener("click", () => {
+    console.log("Correct");
+    question.innerText = "Correct";
   });
 }
 
