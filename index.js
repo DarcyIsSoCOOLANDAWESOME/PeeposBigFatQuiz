@@ -14,6 +14,7 @@
 //Choice from 4 answers. (3 answers) !==true (1 answer) === true (3 answers are not true, 1 answer is true)
 
 const startBtn = document.querySelector(".btnStart");
+const nextBtn = document.querySelector(".btnNext");
 const question = document.querySelector(".questionText");
 const answers = document.querySelector(".btn--answer");
 
@@ -22,8 +23,21 @@ const answerB = document.querySelector("#answerB");
 const answerC = document.querySelector("#answerC");
 const answerD = document.querySelector("#answerD");
 
-const points = document.querySelector("#points");
-points == 0;
+const pointsText = document.querySelector("#points");
+
+const correctAnswer = (isCorrect) => {
+  let score = pointsText.innerText;
+
+  if ((question.innerText = "CORRECT!")) {
+    isCorrect = true;
+    console.log("IS TRUE");
+  }
+  if ((isCorrect = true)) {
+    score++;
+  } else {
+    score = score;
+  }
+};
 
 startBtn.addEventListener("click", () => {
   question.innerText = "Who won Worlds Strongest Man 2025?";
@@ -34,12 +48,30 @@ startBtn.addEventListener("click", () => {
 
   answerA.addEventListener("click", () => {
     question.innerText = "CORRECT!";
+    console.log("added a point");
+    correctAnswer();
   });
 });
 
-if (question.innerText == "CORRECT!") {
-  points++;
-}
+nextBtn.addEventListener("click", () => {
+  question.innerText =
+    "As of 2026, who holds the world record for the shield carry?";
+  answerA.innerText = "Pavlo Kordiyaka";
+  answerB.innerText = "Gavin Bilton";
+  answerC.innerText = "Paddy Haynes";
+  answerD.innerText = "Mateusz Kieliszkowski";
+
+  answerC.addEventListener("click", () => {
+    question.innerText = "CORRECT!";
+    console.log("added a point");
+  });
+});
+
+// for (let i = 0; i < 5; i++) {
+//   if (question.innerText === "CORRECT!") {
+//     console.log("Added a point");
+//   }
+// }
 
 //When the start button is pressed, generate question ONE text and answers
 
