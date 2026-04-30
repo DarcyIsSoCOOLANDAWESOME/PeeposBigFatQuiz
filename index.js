@@ -16,7 +16,7 @@
 const startBtn = document.querySelector(".btnStart");
 const nextBtn = document.querySelector(".btnNext");
 const question = document.querySelector(".questionText");
-const answers = document.querySelector(".btn--answer");
+const answers = document.querySelector("#answerContainer");
 
 const answerA = document.querySelector("#answerA");
 const answerB = document.querySelector("#answerB");
@@ -73,7 +73,6 @@ let currentQuestion = 1;
 const finalQuestion = 3;
 function displayNextQuizQuestion() {
   let q = quizQuestions[currentQuestion];
-  const ans = q.answer;
   currentQuestion++;
   console.log(
     `question: ${q.question} choices: ${q.options} answer: ${q.answer}`,
@@ -101,6 +100,14 @@ nextBtn.addEventListener("click", () => {
   console.log("display next question");
 });
 
-//We want question 1 to appear
-//Need to keep track of questions
-//when option is clicked > check if option === answer
+answers.addEventListener("click", (e) => {
+  function isCorrectAnswer() {
+    let answerCheck = quizQuestions[currentQuestion].answer;
+    if (answerCheck.target.innerHTML === correctAnswer) {
+      console.log("Correct!");
+    } else {
+      console.log("Wrong!");
+    }
+  }
+  isCorrectAnswer();
+});

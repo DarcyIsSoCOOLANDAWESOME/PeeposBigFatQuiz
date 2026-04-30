@@ -1,7 +1,7 @@
 @use "mediaQuery.scss";
+@use "typography.scss";
 
 * {
-  background-color: darkcyan;
   color: white;
   margin: 0 auto;
   @include mediaQuery.phone {
@@ -9,11 +9,15 @@
   }
 }
 
+body {
+  font-family: raleway;
+  background-color: black;
+}
 button {
-  background-color: yellow;
-  border: 2px solid yellowgreen;
-  color: blueviolet;
-  border-radius: 15%;
+  background-color: red;
+
+  color: white;
+
   text-align: center;
   font-weight: 700;
   margin: 4px 2px;
@@ -22,6 +26,7 @@ button {
 }
 
 h1 {
+  color: #ffc000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,11 +50,11 @@ h1 {
   }
 }
 .qImgBox {
-  display: inline-block;
   text-align: center;
   align-items: center;
   justify-content: center;
   padding: 0px, 100px;
+  display: flex;
 }
 img {
   max-width: 20rem;
@@ -80,7 +85,9 @@ img {
   flex-direction: column;
   margin-right: 0;
   font-size: larger;
-  border: 1px solid red;
+  border: 1px solid grey;
+  background-color: white;
+  color: black;
 
   padding-left: 0px;
   p {
