@@ -99,6 +99,14 @@ img {
   transform: scaleX(-1);
 }
 
-.btn--correctAnswer {
+.btn-turn--green {
   background-color: green;
+}
+
+.btn-vanish {
+  display: none;
+}
+
+.btn-display {
+  display: contents;
 }

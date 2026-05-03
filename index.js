@@ -22,7 +22,7 @@ const answerA = document.querySelector("#answerA");
 const answerB = document.querySelector("#answerB");
 const answerC = document.querySelector("#answerC");
 const answerD = document.querySelector("#answerD");
-
+const buttons = document.querySelector(".btn");
 const pointsText = document.querySelector("#points");
 
 const quizQuestions = [
@@ -58,17 +58,6 @@ const quizQuestions = [
   },
 ];
 
-// function displayQuizQuestionOne() {
-//   const q = quizQuestions[0];
-//   const ans = q.answer;
-//   console.log(`${q.question} ${q.options} ${q.answer}`);
-//   question.innerText = q.question;
-//   answerA.innerText = q.options[0];
-//   answerB.innerText = q.options[1];
-//   answerC.innerText = q.options[2];
-//   answerD.innerText = q.options[3];
-// }
-
 let currentQuestion = 0;
 const finalQuestion = 3;
 function displayNextQuizQuestion() {
@@ -90,6 +79,8 @@ function displayNextQuizQuestion() {
 
 startBtn.addEventListener("click", () => {
   displayNextQuizQuestion();
+  startBtn.classList.toggle("btn-vanish");
+  nextBtn.classList.toggle("btn-display");
 });
 
 nextBtn.addEventListener("click", () => {
@@ -99,21 +90,11 @@ nextBtn.addEventListener("click", () => {
 
 answers.addEventListener("click", (e) => {
   const correctAnswer = quizQuestions[currentQuestion].answer;
-
+  currentQuestion++;
   if (e.target.innerText === correctAnswer) {
     console.log("Correct!");
+    buttons.classList.toggle("btn-turn--green");
   } else {
     console.log("Wrong!");
   }
-  currentQuestion++;
 });
-
-turnBtnGreen = btn--correctAnswer
-
-//define magic button
-//add event listener
-//create a new class when this happens
-//use that class in css to change the button
-magicbtn.addEventListener(click, () => {
-magicbtn.classlist.toggle("btn--magic-red")
-})

@@ -104,4 +104,16 @@ img {
   transform: scaleX(-1);
 }
 
+.btn-turn--green {
+  background-color: green;
+}
+
+.btn-vanish {
+  display: none;
+}
+
+.btn-display {
+  display: contents;
+}
+
 /*# sourceMappingURL=style.css.map */
