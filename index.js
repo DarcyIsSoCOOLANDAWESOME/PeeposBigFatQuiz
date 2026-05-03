@@ -73,7 +73,7 @@ let currentQuestion = 0;
 const finalQuestion = 3;
 function displayNextQuizQuestion() {
   let q = quizQuestions[currentQuestion];
-  currentQuestion++;
+
   console.log(
     `question: ${q.question} choices: ${q.options} answer: ${q.answer}`,
   );
@@ -100,9 +100,20 @@ nextBtn.addEventListener("click", () => {
 answers.addEventListener("click", (e) => {
   const correctAnswer = quizQuestions[currentQuestion].answer;
 
-  if (e.target.innerHTML === correctAnswer) {
+  if (e.target.innerText === correctAnswer) {
     console.log("Correct!");
   } else {
     console.log("Wrong!");
   }
+  currentQuestion++;
 });
+
+turnBtnGreen = btn--correctAnswer
+
+//define magic button
+//add event listener
+//create a new class when this happens
+//use that class in css to change the button
+magicbtn.addEventListener(click, () => {
+magicbtn.classlist.toggle("btn--magic-red")
+})
