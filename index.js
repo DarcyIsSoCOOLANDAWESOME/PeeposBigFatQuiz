@@ -16,14 +16,15 @@
 const startBtn = document.querySelector(".btnStart");
 const nextBtn = document.querySelector(".btnNext");
 const question = document.querySelector(".questionText");
-const answers = document.querySelector("#answerContainer");
+const answers = document.querySelectorAll(".btn--answer");
 
 const answerA = document.querySelector("#answerA");
 const answerB = document.querySelector("#answerB");
 const answerC = document.querySelector("#answerC");
 const answerD = document.querySelector("#answerD");
 const buttons = document.querySelector(".btn");
-const pointsText = document.querySelector("#points");
+const scoreText = document.querySelector("#points");
+const playBtn = document.querySelector(".btnPlayAgain");
 
 const quizQuestions = [
   {
@@ -74,7 +75,16 @@ function displayNextQuizQuestion() {
 
   if (currentQuestion === quizQuestions.length - 1) {
     console.log("final");
+  } else if (currentQuestion !== quizQuestions) {
+    playBtn.classList.toggle("btn-display");
   }
+}
+//Define the score variable. Score starts at 0
+//if a point is added, score text (string) = "+1"
+//How do we add a point? We need to define where/what score actually is? It is undefined.
+let score = 0;
+function updatePoints() {
+  scoreText.innerText = score;
 }
 
 startBtn.addEventListener("click", () => {
@@ -88,13 +98,33 @@ nextBtn.addEventListener("click", () => {
   console.log("display next question");
 });
 
-answers.addEventListener("click", (e) => {
-  const correctAnswer = quizQuestions[currentQuestion].answer;
-  currentQuestion++;
-  if (e.target.innerText === correctAnswer) {
-    console.log("Correct!");
-    buttons.classList.toggle("btn-turn--green");
-  } else {
-    console.log("Wrong!");
-  }
+// answers.addEventListener("click", (e) => {
+//   const correctAnswer = quizQuestions[currentQuestion].answer;
+//   currentQuestion++;
+//   if (e.target.innerText === correctAnswer) {
+//     score += 1;
+//     updatePoints();
+//     console.log("Correct!");
+//     buttons.classList.toggle("btn-turn--green"); //I need to define answer somewhere as a query selector i dont know how to do this?
+//   } else {
+//     console.log("Wrong!");
+//   }
+// });
+
+answers.forEach((answerBtn) => {
+  answerBtn.addEventListener("click", (e) => {
+    const isCorrect =
+      quizQuestions[currentQuestion].answer === e.target.innerText;
+
+    if (isCorrect) {
+      score += 1;
+      currentQuestion++;
+      updatePoints();
+      e.target.classList.toggle("btn-turn--green");
+      answers.forEach((btn) => btn.setAttribute("disabled", true));
+      setTimeout(() => {
+        displayNextQuizQuestion();
+      }, 2000);
+    }
+  });
 });

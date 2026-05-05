@@ -114,6 +114,8 @@ img {
 
 .btn-display {
   display: contents;
+  background-color: red;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
