@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Peepo's Strongman Quiz</title>
   </head>
-  <body>
+  <body id="#grad1">
     <main>
       <h1>Peepo's Strongman quiz!</h1>
       <div class="finishedGame">
@@ -31,21 +31,26 @@
       </section>
       <div class="quizGrid" id="answerContainer">
         <div>
-          <button id="answerA" class="btn btn--answer"></button>
+          <button id="answerA" class="btn btn--answer btn-vanish"></button>
         </div>
         <div>
-          <button id="answerB" class="btn btn--answer"></button>
+          <button id="answerB" class="btn btn--answer btn-vanish"></button>
         </div>
         <div>
-          <button id="answerC" class="btn btn--answer"></button>
+          <button id="answerC" class="btn btn--answer btn-vanish"></button>
         </div>
         <div>
-          <button id="answerD" class="btn btn--answer"></button>
+          <button id="answerD" class="btn btn--answer btn-vanish"></button>
         </div>
       </div>
       <!-- <button class="btnNext btn-vanish">next</button> -->
       <div class="questionText"><p>Question: (Placeholder)</p></div>
     </main>
+    <img
+      class="speechBubble"
+      src="https://static.vecteezy.com/system/resources/previews/022/129/669/non_2x/speech-bubble-thought-bubble-comic-bubble-transparent-free-free-png.png"
+      alt=""
+    />
     <div class="peepoImg">
       <img src="./Sprites/PeePoRizz.png" alt="" />
     </div>

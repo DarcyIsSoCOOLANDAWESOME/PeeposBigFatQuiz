@@ -11,7 +11,8 @@
 
 body {
   font-family: raleway;
-  background-color: black;
+  background-color: darkgrey;
+  background-image: linear-gradient(to top, black, rgb(52, 52, 52));
 }
 button {
   background-color: red;
@@ -102,7 +103,7 @@ img {
 }
 
 .btn-turn--green {
-  background-color: green;
+  background-color: green !important;
 }
 
 .btn-vanish {
@@ -110,6 +111,7 @@ img {
 }
 
 .btn-display {
+  transition-duration: 0.5s;
   display: block;
   background-color: red;
 
@@ -118,4 +120,13 @@ img {
 
 .btn-turn--red {
   background-color: red;
+}
+
+.btn:hover {
+  color: black;
+}
+
+.speechBubble {
+  height: 50vw;
+  width: 100 vw;
 }

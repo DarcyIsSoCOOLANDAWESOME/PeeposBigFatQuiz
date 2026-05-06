@@ -71,18 +71,6 @@ const quizQuestions = [
 let currentQuestion = 0;
 const finalQuestion = 3;
 
-function restartGame() {
-  let q = quizQuestions[currentQuestion];
-
-  question.innerText = q.question;
-  answerA.innerText = q.options[0];
-  answerB.innerText = q.options[1];
-  answerC.innerText = q.options[2];
-  answerD.innerText = q.options[3];
-
-  let score = 0;
-}
-
 function displayNextQuizQuestion() {
   let q = quizQuestions[currentQuestion];
 
@@ -94,11 +82,6 @@ function displayNextQuizQuestion() {
   answerB.innerText = q.options[1];
   answerC.innerText = q.options[2];
   answerD.innerText = q.options[3];
-
-  if (currentQuestion === quizQuestions.length - 1) {
-    playAgainBtn.classList.toggle("btn-display");
-    console.log("final");
-  }
 }
 
 startBtn.addEventListener("click", () => {
@@ -111,12 +94,6 @@ startBtn.addEventListener("click", () => {
   answerD.classList.toggle("btn-display");
 });
 
-playAgainBtn.addEventListener("click", () => {
-  restartGame();
-});
-
-//if the start button is clicked
-
 answers.forEach((answerBtn) => {
   answerBtn.addEventListener("click", (e) => {
     const isCorrect =
@@ -126,32 +103,63 @@ answers.forEach((answerBtn) => {
       score += 1;
       currentQuestion++;
       updatePoints();
-      e.target.classList.toggle("btn-turn--green");
+
+      e.target.classList.add("btn-turn--green");
       answers.forEach((btn) => btn.setAttribute("disabled", true));
+
       setTimeout(() => {
+        answers.forEach((btn) => {
+          btn.removeAttribute("disabled");
+          btn.classList.remove("btn-turn--green", "btn-turn--red");
+        });
+
         displayNextQuizQuestion();
-        answers.forEach((btn) => btn.removeAttribute("disabled"));
-        e.target.classList.toggle("btn-turn--red");
-        console.log("ButtonsEnabled?");
       }, 2000);
+
       if (currentQuestion === finalQuestion) {
-        playAgainBtn.classList.toggle("btn-display");
-        startBtn.classList.toggle("btn-vanish");
+        setTimeout(() => {
+          playAgainBtn.classList.toggle("btn-display");
+        }, 3000);
       }
     }
-
     if (!isCorrect) {
       //&& !finalQuestion
       score == score;
       currentQuestion++;
       updatePoints();
       // answer.classList.toggle("btn-turn--green"); //answe is not defined?
+      e.target.classList.add("btn-turn--red");
+
+      const correctAnswer = quizQuestions[currentQuestion - 1].answer;
+
+      answers.forEach((btn) => {
+        if (btn.innerText === correctAnswer) {
+          btn.classList.add("btn-turn--green");
+        }
+      });
+
       answers.forEach((btn) => btn.setAttribute("disabled", true));
+
       setTimeout(() => {
+        answers.forEach((btn) => {
+          btn.removeAttribute("disabled");
+          btn.classList.remove("btn-turn--green", "btn-turn--red");
+        });
+
         displayNextQuizQuestion();
-        answers.forEach((btn) => btn.removeAttribute("disabled"));
-        e.target.classList.toggle("btn-turn--red");
       }, 2000);
     }
   });
 });
+
+playAgainBtn.addEventListener("click", () => {
+  restartGame();
+});
+
+function restartGame() {
+  currentQuestion = 0;
+  score = 0;
+  updatePoints();
+  displayNextQuizQuestion();
+  playAgainBtn.classList.remove("btn-display");
+}
