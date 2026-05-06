@@ -25,6 +25,12 @@ const answerD = document.querySelector("#answerD");
 const buttons = document.querySelector(".btn");
 const scoreText = document.querySelector("#points");
 const playAgainBtn = document.querySelector(".btnPlayAgain");
+
+// answerA.classList.toggle("btn-vanish");
+// answerB.classList.toggle("btn-vanish");
+// answerC.classList.toggle("btn-vanish");
+// answerD.classList.toggle("btn-vanish");
+
 let score = 0;
 function updatePoints() {
   scoreText.innerText = score;
@@ -64,6 +70,19 @@ const quizQuestions = [
 
 let currentQuestion = 0;
 const finalQuestion = 3;
+
+function restartGame() {
+  let q = quizQuestions[currentQuestion];
+
+  question.innerText = q.question;
+  answerA.innerText = q.options[0];
+  answerB.innerText = q.options[1];
+  answerC.innerText = q.options[2];
+  answerD.innerText = q.options[3];
+
+  let score = 0;
+}
+
 function displayNextQuizQuestion() {
   let q = quizQuestions[currentQuestion];
 
@@ -77,7 +96,7 @@ function displayNextQuizQuestion() {
   answerD.innerText = q.options[3];
 
   if (currentQuestion === quizQuestions.length - 1) {
-    startBtn.classList.toggle("btn-display");
+    playAgainBtn.classList.toggle("btn-display");
     console.log("final");
   }
 }
@@ -85,13 +104,18 @@ function displayNextQuizQuestion() {
 startBtn.addEventListener("click", () => {
   displayNextQuizQuestion();
   startBtn.classList.toggle("btn-vanish");
-  nextBtn.classList.toggle("btn-display");
+  // nextBtn.classList.toggle("btn-display");
+  answerA.classList.toggle("btn-display");
+  answerB.classList.toggle("btn-display");
+  answerC.classList.toggle("btn-display");
+  answerD.classList.toggle("btn-display");
 });
 
-nextBtn.addEventListener("click", () => {
-  displayNextQuizQuestion();
-  console.log("display next question");
+playAgainBtn.addEventListener("click", () => {
+  restartGame();
 });
+
+//if the start button is clicked
 
 answers.forEach((answerBtn) => {
   answerBtn.addEventListener("click", (e) => {
@@ -99,7 +123,6 @@ answers.forEach((answerBtn) => {
       quizQuestions[currentQuestion].answer === e.target.innerText;
 
     if (isCorrect) {
-      //&& !finalQuestion
       score += 1;
       currentQuestion++;
       updatePoints();
@@ -122,7 +145,7 @@ answers.forEach((answerBtn) => {
       score == score;
       currentQuestion++;
       updatePoints();
-      answer.classList.toggle("btn-turn--green");
+      // answer.classList.toggle("btn-turn--green"); //answe is not defined?
       answers.forEach((btn) => btn.setAttribute("disabled", true));
       setTimeout(() => {
         displayNextQuizQuestion();

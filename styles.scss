@@ -38,6 +38,8 @@ h1 {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  width: 10px;
+  height: 10px;
 }
 .startGame {
   display: flex;
@@ -108,7 +110,7 @@ img {
 }
 
 .btn-display {
-  display: contents;
+  display: block;
   background-color: red;
 
   color: white;
