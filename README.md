@@ -42,8 +42,8 @@ Choices:
   - [ ] Incorrect answer turns red
 - [ ] Play Again Button
 - [x] We should add classes and ID's to things we need to reference/use
-  - [ ] Answer buttons should have the same class for eg
-  - [ ] Play again and start button should have IDs and Classes?
+  - [x] Answer buttons should have the same class for eg
+  - [x] Play again and start button should have IDs and Classes?
 - [ ] Add some basic animations (I think this can be done through HTML??)
 
 ## SCSS
@@ -56,7 +56,7 @@ Choices:
 - [ ] Colour scheme sheet - [ ] Background Color - [ ] Text Colors
 - [ ] Border Radius, we want no sharp corners
 - [ ] Question Text styled like a speech bubble
-- [ ] Custom Text, do not use the default
+- [x] Custom Text, do not use the default
 
 ## JS Logic
 

@@ -24,8 +24,11 @@ const answerC = document.querySelector("#answerC");
 const answerD = document.querySelector("#answerD");
 const buttons = document.querySelector(".btn");
 const scoreText = document.querySelector("#points");
-const playBtn = document.querySelector(".btnPlayAgain");
-
+const playAgainBtn = document.querySelector(".btnPlayAgain");
+let score = 0;
+function updatePoints() {
+  scoreText.innerText = score;
+}
 const quizQuestions = [
   {
     question: "Who won Worlds Strongest Man 2025?",
@@ -74,17 +77,9 @@ function displayNextQuizQuestion() {
   answerD.innerText = q.options[3];
 
   if (currentQuestion === quizQuestions.length - 1) {
+    startBtn.classList.toggle("btn-display");
     console.log("final");
-  } else if (currentQuestion !== quizQuestions) {
-    playBtn.classList.toggle("btn-display");
   }
-}
-//Define the score variable. Score starts at 0
-//if a point is added, score text (string) = "+1"
-//How do we add a point? We need to define where/what score actually is? It is undefined.
-let score = 0;
-function updatePoints() {
-  scoreText.innerText = score;
 }
 
 startBtn.addEventListener("click", () => {
@@ -98,25 +93,13 @@ nextBtn.addEventListener("click", () => {
   console.log("display next question");
 });
 
-// answers.addEventListener("click", (e) => {
-//   const correctAnswer = quizQuestions[currentQuestion].answer;
-//   currentQuestion++;
-//   if (e.target.innerText === correctAnswer) {
-//     score += 1;
-//     updatePoints();
-//     console.log("Correct!");
-//     buttons.classList.toggle("btn-turn--green"); //I need to define answer somewhere as a query selector i dont know how to do this?
-//   } else {
-//     console.log("Wrong!");
-//   }
-// });
-
 answers.forEach((answerBtn) => {
   answerBtn.addEventListener("click", (e) => {
     const isCorrect =
       quizQuestions[currentQuestion].answer === e.target.innerText;
 
     if (isCorrect) {
+      //&& !finalQuestion
       score += 1;
       currentQuestion++;
       updatePoints();
@@ -124,6 +107,27 @@ answers.forEach((answerBtn) => {
       answers.forEach((btn) => btn.setAttribute("disabled", true));
       setTimeout(() => {
         displayNextQuizQuestion();
+        answers.forEach((btn) => btn.removeAttribute("disabled"));
+        e.target.classList.toggle("btn-turn--red");
+        console.log("ButtonsEnabled?");
+      }, 2000);
+      if (currentQuestion === finalQuestion) {
+        playAgainBtn.classList.toggle("btn-display");
+        startBtn.classList.toggle("btn-vanish");
+      }
+    }
+
+    if (!isCorrect) {
+      //&& !finalQuestion
+      score == score;
+      currentQuestion++;
+      updatePoints();
+      answer.classList.toggle("btn-turn--green");
+      answers.forEach((btn) => btn.setAttribute("disabled", true));
+      setTimeout(() => {
+        displayNextQuizQuestion();
+        answers.forEach((btn) => btn.removeAttribute("disabled"));
+        e.target.classList.toggle("btn-turn--red");
       }, 2000);
     }
   });
