@@ -1,21 +1,6 @@
-//Basic Idea//
-//Peepo's Big Quiz! (my very epic character)
-//Peepo asks a question
-//You answer!
-//Answer from 4 choices. Only 1 is correct
-//Incorrect answer or Correct answer
-
-// Button if button is pressed > display no button and start the game??
-//If (button pressed == true) {start()}
-
-//Need a function or a loop for the questions?
-//if correctAnswer === true ++point (If the answer is true, add a point)
-//if correctAnswer !== true ===point (If the correct answer is not true, keep points the same)
-//Choice from 4 answers. (3 answers) !==true (1 answer) === true (3 answers are not true, 1 answer is true)
-
 const startBtn = document.querySelector(".btnStart");
 const nextBtn = document.querySelector(".btnNext");
-const question = document.querySelector(".questionText");
+const question = document.getElementById("question");
 const answers = document.querySelectorAll(".btn--answer");
 
 const answerA = document.querySelector("#answerA");
@@ -25,11 +10,6 @@ const answerD = document.querySelector("#answerD");
 const buttons = document.querySelector(".btn");
 const scoreText = document.querySelector("#points");
 const playAgainBtn = document.querySelector(".btnPlayAgain");
-
-// answerA.classList.toggle("btn-vanish");
-// answerB.classList.toggle("btn-vanish");
-// answerC.classList.toggle("btn-vanish");
-// answerD.classList.toggle("btn-vanish");
 
 let score = 0;
 function updatePoints() {
@@ -77,7 +57,9 @@ function displayNextQuizQuestion() {
   console.log(
     `question: ${q.question} choices: ${q.options} answer: ${q.answer}`,
   );
-  question.innerText = q.question;
+
+  typingAnim(q.question);
+
   answerA.innerText = q.options[0];
   answerB.innerText = q.options[1];
   answerC.innerText = q.options[2];
@@ -149,4 +131,24 @@ function restartGame() {
   updatePoints();
   displayNextQuizQuestion();
   playAgainBtn.classList.remove("btn-display");
+}
+
+function typingAnim(text, speed = 50) {
+  //A new function which takes text (string) and (anim)speed (number)
+  question.textContent = ""; //First we clear the question string
+
+  let i = 0; //we are creating a new variable which is the number of characters. This var is 0
+
+  function typing() {
+    //Function in a function
+    if (i < text.length) {
+      //if the number of characters is less than the length of the inner text characters
+
+      question.textContent += text.charAt(i); //then add on a character till you have met the length of inner text
+      i++;
+      setTimeout(typing, speed); //typing is calling the typing function and speed is delayed by 0.5s for each character
+    }
+  }
+
+  typing();
 }
