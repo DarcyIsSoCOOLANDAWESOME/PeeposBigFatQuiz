@@ -159,4 +159,12 @@ button:hover {
   display: block;
 }
 
+.audio {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: red;
+}
+
 /*# sourceMappingURL=style.css.map */
