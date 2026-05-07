@@ -94,62 +94,49 @@ startBtn.addEventListener("click", () => {
   answerD.classList.toggle("btn-display");
 });
 
-answers.forEach((answerBtn) => {
-  answerBtn.addEventListener("click", (e) => {
-    const isCorrect =
-      quizQuestions[currentQuestion].answer === e.target.innerText;
+function handleAnswer(e) {
+  const selectedBtn = e.target;
+  const currentQ = quizQuestions[currentQuestion];
 
-    if (isCorrect) {
-      score += 1;
-      currentQuestion++;
-      updatePoints();
+  const isCorrect = currentQ.answer === selectedBtn.innerText;
 
-      e.target.classList.add("btn-turn--green");
-      answers.forEach((btn) => btn.setAttribute("disabled", true));
+  answers.forEach((btn) => btn.setAttribute("disabled", true));
 
-      setTimeout(() => {
-        answers.forEach((btn) => {
-          btn.removeAttribute("disabled");
-          btn.classList.remove("btn-turn--green", "btn-turn--red");
-        });
+  if (isCorrect) {
+    score++;
+    selectedBtn.classList.add("btn-turn--green");
+  } else {
+    selectedBtn.classList.add("btn-turn--red");
 
-        displayNextQuizQuestion();
-      }, 2000);
-
-      if (currentQuestion === finalQuestion) {
-        setTimeout(() => {
-          playAgainBtn.classList.toggle("btn-display");
-        }, 3000);
+    answers.forEach((btn) => {
+      if (btn.innerText === currentQ.answer) {
+        btn.classList.add("btn-turn--green");
       }
+    });
+  }
+
+  updatePoints();
+  currentQuestion++;
+
+  const isGameOver = currentQuestion >= quizQuestions.length;
+
+  setTimeout(() => {
+    answers.forEach((btn) => {
+      btn.removeAttribute("disabled");
+      btn.classList.remove("btn-turn--green", "btn-turn--red");
+    });
+
+    if (isGameOver) {
+      playAgainBtn.classList.add("btn-display");
+      return;
     }
-    if (!isCorrect) {
-      //&& !finalQuestion
-      score == score;
-      currentQuestion++;
-      updatePoints();
-      // answer.classList.toggle("btn-turn--green"); //answe is not defined?
-      e.target.classList.add("btn-turn--red");
 
-      const correctAnswer = quizQuestions[currentQuestion - 1].answer;
+    displayNextQuizQuestion();
+  }, 2000);
+}
 
-      answers.forEach((btn) => {
-        if (btn.innerText === correctAnswer) {
-          btn.classList.add("btn-turn--green");
-        }
-      });
-
-      answers.forEach((btn) => btn.setAttribute("disabled", true));
-
-      setTimeout(() => {
-        answers.forEach((btn) => {
-          btn.removeAttribute("disabled");
-          btn.classList.remove("btn-turn--green", "btn-turn--red");
-        });
-
-        displayNextQuizQuestion();
-      }, 2000);
-    }
-  });
+answers.forEach((answerBtn) => {
+  answerBtn.addEventListener("click", handleAnswer);
 });
 
 playAgainBtn.addEventListener("click", () => {

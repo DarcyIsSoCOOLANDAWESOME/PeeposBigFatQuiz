@@ -8,11 +8,40 @@
 * {
   color: white;
   margin: 0 auto;
+  margin-left: 1vw;
 }
 @media only screen and (max-width: 640px) {
   * {
     font-size: x-large;
   }
+}
+
+.bubble {
+  position: relative;
+  background: #ffffff;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 20px;
+  line-height: 80px;
+  text-align: center;
+  width: 474px;
+  height: 174px;
+  border-radius: 10px;
+  padding: 0px;
+}
+
+.bubble:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  z-index: 1;
+  border-style: solid;
+  border-width: 0 40px 49px 0;
+  border-color: transparent #ffffff transparent transparent;
+  bottom: -40px;
+  left: 94%;
+  margin-left: -20px;
 }
 
 body {
@@ -32,7 +61,7 @@ button {
 }
 
 h1 {
-  color: #ffc000;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,12 +69,12 @@ h1 {
   text-decoration: underline;
 }
 
-.peepo {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  width: 10px;
-  height: 10px;
+.peepoImg {
+  margin-left: 200px;
+  margin-bottom: 200px;
+  left: 200px;
+  width: 350px;
+  height: 350px;
 }
 
 .startGame {
@@ -80,12 +109,26 @@ img {
 
 .quizGrid {
   display: grid;
-  justify-content: space-between;
-  justify-content: space-evenly;
-  grid-template-columns: repeat(2, 3fr);
+  grid-template-columns: repeat(2, 2fr);
+  padding-bottom: 2rem;
+}
+@media only screen and (min-width: 641px) {
+  .quizGrid {
+    width: 100px;
+    height: 10rem;
+  }
 }
 .quizGrid .btn--answer {
-  padding: 20px 100px 20px;
+  margin: 0;
+  width: 10rem;
+  height: 4rem;
+  text-align: center;
+}
+@media only screen and (min-width: 641px) {
+  .quizGrid .btn--answer {
+    width: 10vw;
+    height: 7vw;
+  }
 }
 
 .questionText {
@@ -94,8 +137,6 @@ img {
   flex-direction: column;
   margin-right: 0;
   font-size: larger;
-  border: 1px solid grey;
-  background-color: white;
   color: black;
   padding-left: 0px;
 }
@@ -128,11 +169,6 @@ img {
 
 .btn:hover {
   color: black;
-}
-
-.speechBubble {
-  height: 50vw;
-  width: 100 vw;
 }
 
 /*# sourceMappingURL=style.css.map */
